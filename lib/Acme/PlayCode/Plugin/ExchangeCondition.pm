@@ -2,7 +2,7 @@ package Acme::PlayCode::Plugin::ExchangeCondition;
 
 use Moose::Role;
 
-our $VERSION   = '0.01';
+our $VERSION   = '0.02';
 our $AUTHORITY = 'cpan:FAYLAND';
 
 around 'do_with_token' => sub {
@@ -118,14 +118,16 @@ Acme::PlayCode::Plugin::ExchangeCondition - Play code with exchanging condition
 =head1 SYNOPSIS
 
     use Acme::PlayCode;
-
-    my $app = Acme::PlayCode->new( io => $filename );
-    # or
-    my $app = Acme::PlayCode->new( io => \$code );
+    
+    my $app = Acme::PlayCode;
     
     $app->load_plugin('ExchangeCondition');
     
-    my $code_played = $app->run;
+    my $played_code = $app->play( $code );
+    # or
+    my $played_code = $app->play( $filename );
+    # or
+    $app->play( $filename, { rewrite_file => 1 } ); # override $filename with played code
 
 =head1 DESCRIPTION
 
@@ -153,7 +155,7 @@ becomes
 
 =head1 SEE ALSO
 
-L<Moose>, L<PPI>, L<MooseX::Object::Pluggable>
+L<Acme::PlayCode>, L<Moose>, L<PPI>, L<MooseX::Object::Pluggable>
 
 =head1 AUTHOR
 
