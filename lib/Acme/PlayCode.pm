@@ -4,7 +4,7 @@ use Moose;
 use PPI;
 use Path::Class ();
 
-our $VERSION   = '0.02';
+our $VERSION   = '0.03';
 our $AUTHORITY = 'cpan:FAYLAND';
 
 with 'MooseX::Object::Pluggable';
@@ -111,6 +111,10 @@ More description and API detais will come later.
 =head1 PLUGINS
 
 =over 4
+
+=item L<Acme::PlayCode::Plugin::Averything>
+
+load all plugins we found.
 
 =item L<Acme::PlayCode::Plugin::DoubleToSingle>
 
