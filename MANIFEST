@@ -15,4 +15,5 @@ t/012-exchangeCondition.t
 t/013-printComma.t
 t/099-Averything.t
 t/101-heredoc.t
+t/201-exchange_space_bug.t
 t/pod.t
