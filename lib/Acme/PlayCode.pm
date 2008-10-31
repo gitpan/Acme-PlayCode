@@ -4,7 +4,7 @@ use Moose;
 use PPI;
 use Path::Class ();
 
-our $VERSION   = '0.09';
+our $VERSION   = '0.10';
 our $AUTHORITY = 'cpan:FAYLAND';
 
 with 'MooseX::Object::Pluggable';
@@ -57,8 +57,7 @@ sub play {
 sub do_with_tokens {
     my ( $self ) = @_;
     
-    my @tokens = $self->tokens;
-    while ( $self->token_flag < scalar @tokens) {
+    while ( $self->token_flag < scalar @{$self->tokens}) {
         my $orginal_flag = $self->token_flag;
         my $content = $self->do_with_token_flag( $self->token_flag );
         push @{ $self->output }, $content if ( defined $content );
@@ -107,6 +106,8 @@ sub do_with_token {
 }
 
 no Moose;
+__PACKAGE__->meta->make_immutable;
+
 1;
 __END__
 
@@ -159,6 +160,10 @@ Play code with exchanging condition
 =item L<Acme::PlayCode::Plugin::PrintComma>
 
 Play code with printing comma
+
+=item L<Acme::PlayCode::Plugin::NumberPlus>
+
+Play code with plus number
 
 =back
 
